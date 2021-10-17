@@ -1,41 +1,40 @@
 import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import { ChakraProvider, Box, Center, Heading } from '@chakra-ui/react';
+
+import Form from './Components/Form.js';
+import theme from './theme';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
+    <>
+      <ChakraProvider theme={theme}>
+        <Box
+          bgColor="purple.50"
+          position="fixed"
+          overflow="hidden"
+          borderWidth={[10, 20]}
+          borderColor="#271F41"
+          maxH={'100%'}
+          maxW={'100%'}
+          w={['100%', '100%']}
+          h={['100%', '100%']}
+        >
+          <Center>
+            <Box pt={10} fontSize="xl">
+              <Heading
+                bgClip={'text'}
+                bgGradient="linear-gradient( 64.5deg,  rgba(245,116,185,1) 14.7%, rgba(89,97,223,1) 88.7% )"
+                size={'4xl'}
+                textAlign={'center'}
+              >
+                NHTSA Vehicle API
+              </Heading>
+              <Form />
+            </Box>
+          </Center>
+        </Box>
+      </ChakraProvider>
+    </>
   );
 }
 
