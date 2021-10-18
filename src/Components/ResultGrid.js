@@ -1,23 +1,12 @@
 import React from 'react';
 import {
   Box,
-  Text,
   Center,
-  Button,
   Heading,
   SimpleGrid,
   VStack,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverArrow,
   Spinner,
-  PopoverCloseButton,
-  PopoverBody,
-  Popover,
 } from '@chakra-ui/react';
-
-import { BsImage } from 'react-icons/bs';
 
 function DisplayResult({ result, showSpinner }) {
   return (
@@ -53,33 +42,9 @@ function DisplayResult({ result, showSpinner }) {
                   Model ID : {data.Model_ID}
                 </Heading>
               </VStack>
-              <Popover isLazy>
-                <PopoverTrigger>
-                  <Center mt={8}>
-                    <Button
-                      colorScheme={'purple'}
-                      size={'lg'}
-                      leftIcon={<BsImage />}
-                    >
-                      View Image
-                    </Button>
-                  </Center>
-                </PopoverTrigger>
-                <PopoverContent>
-                  <PopoverArrow />
-                  <PopoverCloseButton />
-                  <PopoverHeader>Confirmation!</PopoverHeader>
-                  <PopoverBody>
-                    <Text>
-                      Are you sure you want to have that milkshake
-                    </Text>
-                  </PopoverBody>
-                </PopoverContent>
-              </Popover>
             </Box>
           ))}
-        </SimpleGrid>
-        )
+        </SimpleGrid>)
       ) : (
         showSpinner ? (
           <Center>

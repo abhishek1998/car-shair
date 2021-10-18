@@ -16,6 +16,7 @@ import {
   HStack,
   Input,
   TabList,
+  useToast,
 } from '@chakra-ui/react';
 
 import { BsFillCalendar2DateFill } from 'react-icons/bs';
@@ -34,17 +35,29 @@ function Form() {
   const [modelMake, setModelMake] = useState('');
   const [status, setStatus] = useState('');
 
+  const toast = useToast();
+
+  const showToast = (desc) => {
+        toast({
+          variant: 'subtle',
+          description: desc,
+          status: 'warning',
+          isClosable: true,
+          position: 'top',
+        });
+  }
+
   const validateInput = (tabIndex) => {
     if (tabIndex == 1) {
       if (carType == '') {
-        setStatus('Please enter Car Type to fetch the data from API');
+        showToast('Please enter Car Type to fetch the data from API');
         return false;
       } else {
         return true;
       }
     } else {
-      if (isNaN(modelYear) == true && modelMake == '') {
-        setStatus('Please enter Model Year and Model Make to fetch the data from API');
+      if (isNaN(modelYear) == true || modelMake == '') {
+        showToast('Please enter Model Year and Model Make to fetch the data from API');
         return false;
       }
       return true;
@@ -158,6 +171,7 @@ function Form() {
                     pl={3}
                     mb={4}
                     w={['80vw', '47vw']}
+                    variant='flushed'
                     value={modelMake}
                     onChange={e => {
                       setModelMake(e.target.value);
@@ -225,9 +239,6 @@ function Form() {
                 </Heading>
               </Center>)
           }
-          <Center>
-            <Heading color='purple.500' size={'lg'} > {status} </Heading>
-          </Center>
         </Box>
       </Box>
     </>
