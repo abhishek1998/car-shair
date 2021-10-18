@@ -1,4 +1,10 @@
 # CARSHAiR Take Home Assignment
+Visit https://nhtsa-vehicle-api.herokuapp.com/ to view the react application.
+
+###Stack Used
+- React.js
+- Chakra-UI
+- heroku(for deployment)
 
 ## Build Instructions 
 - **Locally**	
@@ -9,3 +15,4 @@
 	npm run start
 	```
 	Open https://localhost:3000 in your fav browser
+
