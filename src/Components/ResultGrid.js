@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Text,
   Center,
   Heading,
   SimpleGrid,
@@ -9,6 +10,8 @@ import {
 } from '@chakra-ui/react';
 
 function DisplayResult({ result, showSpinner }) {
+  console.log(" result ", result);
+
   return (
     <>
       {result.Results ? (
@@ -22,7 +25,7 @@ function DisplayResult({ result, showSpinner }) {
               borderColor={'#6752ac'}
               borderWidth={'10px'}
               borderRadius={'3px'}
-              bg="#271F41"
+              bg='gray.900'
               color={'purple.50'}
               height="280px"
             >
@@ -35,11 +38,17 @@ function DisplayResult({ result, showSpinner }) {
                 >
                   {data.Make_Name}
                 </Heading>
-                <Heading textAlign={'center'} mt={3} size={'md'}>
-                  Model Name : {data.Model_Name}
+                <Heading mb={2} textAlign={'center'} mt={3} size={'md'}>
+                  Model Name  <br />
+                  <Heading size='md' pt={2}  as='u' color='orange.300'>
+                    {data.Model_Name}
+                  </Heading>
                 </Heading>
-                <Heading textAlign={'center'} mt={3} size={'md'}>
-                  Model ID : {data.Model_ID}
+                <Heading mb={2} textAlign={'center'} mt={3} size={'md'}>
+                  Model ID  <br />
+                  <Heading size='md' pt={3} as='u' color='orange.300'>
+                    {data.Model_ID}
+                  </Heading>
                 </Heading>
               </VStack>
             </Box>

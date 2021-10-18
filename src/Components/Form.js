@@ -38,13 +38,13 @@ function Form() {
   const toast = useToast();
 
   const showToast = (desc) => {
-        toast({
-          variant: 'subtle',
-          description: desc,
-          status: 'warning',
-          isClosable: true,
-          position: 'top',
-        });
+    toast({
+      variant: 'subtle',
+      description: desc,
+      status: 'warning',
+      isClosable: true,
+      position: 'top',
+    });
   }
 
   const validateInput = (tabIndex) => {
